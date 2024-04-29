@@ -12,7 +12,8 @@ import sendmsj from "./routes/sendmsj.routes.js";
 const app = express();
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    //origin: "http://localhost:5173",
+    origin: "https://frontappmsj.onrender.com",
     credentials:true
   })
 );
