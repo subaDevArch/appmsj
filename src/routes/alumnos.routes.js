@@ -5,7 +5,7 @@ import { getAllAlumnos} from '../controllers/alumno.controller.js';
 const router = Router();
 
 // Obtener todos los alumnos
-router.get('/alumnos', authRequired, getAllAlumnos);
+router.get('/alumnos', getAllAlumnos);
 
 
 
