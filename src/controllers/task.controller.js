@@ -2,9 +2,14 @@ import Task from "../models/task.model.js";
 
 export const getTasks = async (req, res) => {
   try {
+    if (!req.user) {
+      return res.status(401).json({ message: "Usuario no autenticado" });
+    }
+
     const tasks = await Task.find({
       user: req.user.id,
     }).populate('user');
+
     res.json(tasks);
   } catch (error) {
     console.error("Error al obtener tareas:", error);
