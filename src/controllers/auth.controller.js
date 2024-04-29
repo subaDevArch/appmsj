@@ -4,7 +4,6 @@ import { createAccessToken } from "../libs/jwt.js";
 import jwt from "jsonwebtoken";
 import { TOKEN_SECRET } from "../config.js";
 
-
 export const register = async (req, res) => {
   const { email, password, username } = req.body;
   try {
@@ -20,7 +19,12 @@ export const register = async (req, res) => {
     const userSaved = await newUser.save();
     const token = await createAccessToken({ id: userSaved._id });
 
-    res.cookie("token", token);
+    // Configura la cookie con las opciones adecuadas
+    res.cookie("token", token, {
+      expires: new Date(Date.now() + 24 * 60 * 60 * 1000), // 1 día
+      httpOnly: true,
+      secure: true, // Solo enviar sobre HTTPS
+    });
 
     res.json({
       id: userSaved._id,
@@ -34,6 +38,7 @@ export const register = async (req, res) => {
     res.status(500).json({ error: "Error al registrar el usuario" });
   }
 };
+
 export const login = async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -47,7 +52,12 @@ export const login = async (req, res) => {
 
     const token = await createAccessToken({ id: userFound._id });
 
-    res.cookie("token", token);
+    // Configura la cookie con las opciones adecuadas
+    res.cookie("token", token, {
+      expires: new Date(Date.now() + 24 * 60 * 60 * 1000), // 1 día
+      httpOnly: true,
+      secure: true, // Solo enviar sobre HTTPS
+    });
 
     res.json({
       id: userFound._id,
@@ -58,18 +68,22 @@ export const login = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ error: "Error al registrar el usuario" });
+    res.status(500).json({ error: "Error al iniciar sesión" });
   }
 };
 
 export const logout = (req, res) => {
+  // Configura la cookie para que expire inmediatamente
   res.cookie("token", "", {
     expires: new Date(0),
+    httpOnly: true,
+    secure: true, // Solo enviar sobre HTTPS
   });
   return res.sendStatus(200);
 };
 
 export const profile = async (req, res) => {
+  // Obtén los datos del usuario desde el token
   const userFound = await User.findById(req.user.id);
   if (!userFound)
     return res.status(400).json({
