@@ -6,7 +6,7 @@ export const authRequired = (req, res, next) => {
     const { token } = req.cookies;
 
     if (!token)
-      res.status(401).json({
+      return res.status(401).json({
         message: "No token!, Acceso denegado!",
       });
 
@@ -16,10 +16,9 @@ export const authRequired = (req, res, next) => {
           message: "Invalid Token",
         });
       req.user = user;
-      next();
+      next(); // Llama a next() aquí para continuar con el siguiente middleware o controlador
     });
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
-  
 };
