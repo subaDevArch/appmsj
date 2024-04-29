@@ -38,7 +38,7 @@ const DetallesAlumnos = () => {
         return;
       }
   
-      const response = await fetch("http://localhost:3000/api/enviado", {
+      const response = await fetch("https://backend-msj.onrender.com/api/enviado", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
