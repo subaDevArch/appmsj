@@ -19,7 +19,7 @@ const DetallesAlumnos = () => {
       const emailsPadres = selectedAlumnos.map((alumno) => alumno["Email Padre o Tutor:"]).join(", ");
       const todosLosEmails = [emailsAlumnos, emailsMadres, emailsPadres].filter(email => email.trim() !== "").join(", ");
       setEmail(todosLosEmails);
-      console.log(todosLosEmails)
+      //console.log(todosLosEmails)
     }
   }, [selectedAlumnos, agruparEmails]);
 
@@ -29,9 +29,9 @@ const DetallesAlumnos = () => {
   const sendMail = async (e) => {
     e.preventDefault();
     try {
-      console.log("Email:", email);
-      console.log("Asunto:", subject);
-      console.log("Mensaje:", mensaje);
+      //console.log("Email:", email);
+      //console.log("Asunto:", subject);
+      //console.log("Mensaje:", mensaje);
   
       if (!email.trim() || !subject.trim() || !mensaje.trim()) {
         console.log("Por favor, completa todos los campos.");
