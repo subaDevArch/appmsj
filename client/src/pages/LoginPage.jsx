@@ -19,7 +19,7 @@ function LoginPage() {
   });
 
   useEffect(() => {
-    if (isAuthenticated) navigate("/tasks");
+    if (isAuthenticated) navigate("/apps");
     if (signinErrors && signinErrors.length > 0) {
       const errorMessages = signinErrors.join(", ");
       setErrorMessage(errorMessages);
