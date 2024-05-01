@@ -19,7 +19,7 @@ const TablaCursos = () => {
     setFilteredAlumnos(alumnos);
     setLoading(false);
   }, [alumnos]);
-  console.log(alumnos);
+  //console.log(alumnos);
 
   const handleChange = (e) => {
     const filter = e.target.value.toLowerCase();
