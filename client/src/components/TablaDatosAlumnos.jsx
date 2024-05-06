@@ -3,7 +3,7 @@ import DataTable from "react-data-table-component";
 import { useAlumnos } from "../context/AlumnoContext";
 import { useNavigate } from "react-router-dom";
 
-const TablaAlumnos = () => {
+const TablaDatosAlumnos = () => {
   const { alumnos, obtenerAlumnos } = useAlumnos();
   const [filteredAlumnos, setFilteredAlumnos] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -41,7 +41,7 @@ const TablaAlumnos = () => {
 
   const handleDetalleClick = () => {
     // Navegamos a la página de detalles con los alumnos seleccionados
-    navigate("/send-alumnos", { state: { selectedAlumnos: selectedRows } });
+    navigate("/datos-alumnos", { state: { selectedAlumnos: selectedRows } });
   };
 
   const columns = [
@@ -80,10 +80,10 @@ const TablaAlumnos = () => {
       />
       
       <button onClick={handleDetalleClick} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">
-        Enviar Mensaje
+        Ver Datos
       </button>
     </div>
   );
 };
 
-export default TablaAlumnos;
+export default TablaDatosAlumnos;

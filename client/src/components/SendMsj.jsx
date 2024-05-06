@@ -10,7 +10,7 @@ const DetallesAlumnos = () => {
 
   const location = useLocation();
   const selectedAlumnos = location.state ? location.state.selectedAlumnos : [];
-  console.log(selectedAlumnos);
+  //console.log(selectedAlumnos);
 
   useEffect(() => {
     if (selectedAlumnos.length > 0 && agruparEmails) {
@@ -52,9 +52,9 @@ const DetallesAlumnos = () => {
   
       if (response.ok) {
         console.log("Email enviado correctamente");
-        setEmail("");
-        setSubject("");
-        setMensaje("");
+        //setEmail("");
+        //setSubject("");
+        //setMensaje("");
       } else {
         console.log("Error al enviar el correo");
       }

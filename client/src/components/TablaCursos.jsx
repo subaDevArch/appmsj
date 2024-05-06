@@ -42,7 +42,7 @@ const TablaCursos = () => {
 
   const handleDetalleClick = () => {
     // Navegamos a la página de detalles con los alumnos seleccionados
-    navigate("/detalles-cursos", { state: { selectedAlumnos: selectedRows } });
+    navigate("/send-cursos", { state: { selectedAlumnos: selectedRows } });
   };
 
   const columns = [

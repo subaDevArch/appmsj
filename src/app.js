@@ -12,30 +12,21 @@ import alumnosRoutes from "./routes/alumnos.routes.js";
 import sendmsj from "./routes/sendmsj.routes.js";
 
 // Importación de función para conectar a la base de datos
-import { connectDB } from './db.js';
+
 
 // Configuración de Express
 const app = express();
-
+const origins = ["https://frontappmsj.onrender.com","http://localhost:5173"]
 // Middleware para permitir solicitudes CORS desde el origen especificado
 app.use(
   cors({
     //origin: "http://localhost:5173",
-    origin: "https://frontappmsj.onrender.com",
+    origin: origins,
     credentials:true
   })
 );
 
-// Configuración de la base de datos y conexión
-connectDB();
 
-// Asignación del puerto definido por la variable de entorno PORT o el puerto 3000 como alternativa
-const port = process.env.PORT || 3000;
-
-// Inicio del servidor Express
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
 
 // Configuración de variables de entorno
 dotenv.config();

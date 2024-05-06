@@ -1,10 +1,16 @@
 import axios from "axios";
 
-const instance = axios.create({
-  //baseURL: "http://localhost:3000/api",
-  baseURL: "https://backend-msj.onrender.com/api",
-  withCredentials : true
+let baseURL;
 
+if (process.env.NODE_ENV === "production") {
+  baseURL = "https://backend-msj.onrender.com/api";
+} else {
+  baseURL = "http://localhost:3000/api";
+}
+
+const instance = axios.create({
+  baseURL: baseURL,
+  withCredentials: true
 });
 
 export default instance;
