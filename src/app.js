@@ -12,7 +12,7 @@ import alumnosRoutes from "./routes/alumnos.routes.js";
 import sendmsj from "./routes/sendmsj.routes.js";
 
 // Importación de función para conectar a la base de datos
-
+dotenv.config();
 
 // Configuración de Express
 const app = express();
@@ -29,7 +29,7 @@ app.use(
 
 
 // Configuración de variables de entorno
-dotenv.config();
+
 
 // Middleware para registro de solicitudes HTTP en el modo de desarrollo
 app.use(morgan("dev"));

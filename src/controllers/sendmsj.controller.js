@@ -10,8 +10,8 @@ export const enviarCorreo = async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "preceptor2.00@gmail.com",
-        pass: "sesi gpra zfsw zhhr",
+        user: process.env.EMAIL,
+        pass: process.env.PASSWORD,
       },
     });
 
