@@ -9,7 +9,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 const instance = axios.create({
-  baseURL: baseURL,
+  baseURL: "https://backend-msj.onrender.com/api",
   withCredentials: true
 });
 
