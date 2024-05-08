@@ -34,7 +34,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/login" element={<LoginPage />} />
-                <Route path="/register" element={<RegisterPage />} />
+
                 <Route path="/apps" element={<AppPage />} />
 
                 <Route element={<ProtectedRoute />}>
@@ -45,7 +45,10 @@ function App() {
                   />
                   <Route path="/buscar-alumnos" element={<BuscarAlumnos />} />
                   <Route path="/datos-alumnos" element={<DatosAlumnosPage />} />
-                  <Route path="/buscar-datos-alumnos" element={<BuscarDatosPage />} />
+                  <Route
+                    path="/buscar-datos-alumnos"
+                    element={<BuscarDatosPage />}
+                  />
                   <Route path="/buscar-por-curso" element={<BuscarCursos />} />
                   <Route path="/send-alumnos" element={<SendPage />} />
                   <Route path="/send-cursos" element={<SendPadres />} />
