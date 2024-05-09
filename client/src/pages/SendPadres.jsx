@@ -3,7 +3,10 @@ import SendMsjPadres from "../components/SendMsjPadres"
 
 function SendPadres() {
   return (
-    <SendMsjPadres/>
+    <div className="h-screen bg-gray-50">
+      <SendMsjPadres/>
+    </div>
+    
   )
 }
 
