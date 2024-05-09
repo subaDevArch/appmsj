@@ -4,8 +4,10 @@ import SendMsj from "../components/SendMsj";
 
 function SendPage() {
   return (
-    <SendMsj/>
-  )
+    <div className="h-screen bg-gray-50">
+      <SendMsj />
+    </div>
+  );
 }
 
-export default SendPage
+export default SendPage;
