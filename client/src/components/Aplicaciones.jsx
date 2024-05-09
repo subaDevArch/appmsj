@@ -1,6 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Mail, Hotel, Clock11, FileText, LibraryBig, BookOpenCheck } from "lucide-react";
+import {
+  Mail,
+  Hotel,
+  Clock11,
+  FileText,
+  LibraryBig,
+  BookOpenCheck,
+  Notebook,
+  NotebookTabs,
+  FileClock,
+  BookPlus
+} from "lucide-react";
 
 function Aplicaciones() {
   return (
@@ -57,6 +68,46 @@ function Aplicaciones() {
           <BookOpenCheck className="w-9 h-9" />
         </div>
         <span className="text-xs mt-2">Gestiòn Academica</span>
+      </a>
+      <a
+        href="https://www.eidfs.unsj.edu.ar/institucional/institucional/76"
+        className="flex flex-col items-center"
+      >
+        <div className="bg-white hover:bg-gray-100 text-blue-500 font-bold py-8 px-8 rounded-xl shadow-md flex items-center justify-center">
+          <Notebook className="w-9 h-9" />
+        </div>
+        <span className="text-xs mt-2 ml-2.5">
+          Planes de Estudio Ciclo Basico
+        </span>
+      </a>
+      <a
+        href="https://www.eidfs.unsj.edu.ar/institucional/institucional/79"
+        className="flex flex-col items-center"
+      >
+        <div className="bg-white hover:bg-gray-100 text-blue-500 font-bold py-8 px-8 rounded-xl shadow-md flex items-center justify-center">
+          <NotebookTabs className="w-9 h-9" />
+        </div>
+        <span className="text-xs mt-2 ml-2.5">
+          Planes de Estudio Ciclo Tecnico
+        </span>
+      </a>
+      <a
+        href="https://preceptor2punto0.netlify.app/horarios"
+        className="flex flex-col items-center"
+      >
+        <div className="bg-white hover:bg-gray-100 text-blue-500 font-bold py-8 px-8 rounded-xl shadow-md flex items-center justify-center">
+          < FileClock className="w-9 h-9" />
+        </div>
+        <span className="text-xs mt-2">Horario Profesores</span>
+      </a>
+      <a
+        href="https://www.eidfs.unsj.edu.ar/institucional/institucional/59"
+        className="flex flex-col items-center"
+      >
+        <div className="bg-white hover:bg-gray-100 text-blue-500 font-bold py-8 px-8 rounded-xl shadow-md flex items-center justify-center">
+          < BookPlus className="w-9 h-9" />
+        </div>
+        <span className="text-xs mt-2 ml-2.5">Horarios de Consultas</span>
       </a>
     </>
   );
