@@ -16,7 +16,7 @@ export const enviarCorreo = async (req, res) => {
     });
 
     const mailOptions = {
-      from: "preceptor2.00@gmail.com",
+      from: process.env.EMAIL,
       to: email,
       subject: subject, // Cambiado de 'asunto' a 'subject'
       text: mensaje,

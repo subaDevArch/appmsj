@@ -3,6 +3,7 @@ import DatosAlumnos from '../components/DatosAlumnos'
 
 function DatosAlumnosPage() {
   return (
+    
     <div><DatosAlumnos/></div>
   )
 }
