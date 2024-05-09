@@ -17,7 +17,7 @@ const DetallesAlumnos = () => {
               <h3 className="text-lg font-semibold mb-2">Alumno {index + 1}</h3>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block mb-1">Nombre y Apellido del Alumno:</label>
+                  <label className="block mb-1">Nombre y Apellido:</label>
                   <input
                     type="text"
                     value={alumno["Nombre y Apellido del Alumno:"]}
@@ -26,7 +26,7 @@ const DetallesAlumnos = () => {
                   />
                 </div>
                 <div>
-                  <label className="block mb-1">Curso al que asiste:</label>
+                  <label className="block mb-1">Curso:</label>
                   <input
                     type="text"
                     value={alumno["Curso al que asiste:"]}
@@ -44,7 +44,7 @@ const DetallesAlumnos = () => {
                   />
                 </div>
                 <div>
-                  <label className="block mb-1">Número de Celular Alumno:</label>
+                  <label className="block mb-1">Celular Alumno:</label>
                   <input
                     type="text"
                     value={alumno["Número de Celular Alumno:"]}
@@ -53,7 +53,7 @@ const DetallesAlumnos = () => {
                   />
                 </div>
                 <div>
-                  <label className="block mb-1">Nombre y Apellido Madre o Tutor:</label>
+                  <label className="block mb-1">Madre o Tutor:</label>
                   <input
                     type="text"
                     value={alumno["Nombre y Apellido Madre o Tutor:"]}
@@ -71,7 +71,7 @@ const DetallesAlumnos = () => {
                   />
                 </div>
                 <div>
-                  <label className="block mb-1">Número de Celular Madre o Tutor:</label>
+                  <label className="block mb-1">Celular Madre o Tutor:</label>
                   <input
                     type="text"
                     value={alumno["Número de Celular Madre o Tutor:"]}
@@ -80,7 +80,7 @@ const DetallesAlumnos = () => {
                   />
                 </div>
                 <div>
-                  <label className="block mb-1">Nombre y Apellido Padre o Tutor:</label>
+                  <label className="block mb-1">Padre o Tutor:</label>
                   <input
                     type="text"
                     value={alumno["Nombre y Apellido Padre o Tutor:"]}
@@ -98,7 +98,7 @@ const DetallesAlumnos = () => {
                   />
                 </div>
                 <div>
-                  <label className="block mb-1">Número de Celular Padre o Tutor:</label>
+                  <label className="block mb-1">Celular Padre o Tutor:</label>
                   <input
                     type="text"
                     value={alumno["Número de Celular Padre o Tutor:"]}
@@ -116,7 +116,7 @@ const DetallesAlumnos = () => {
                   />
                 </div>
                 <div>
-                  <label className="block mb-1">Observaciones sobre el alumno:</label>
+                  <label className="block mb-1">Observaciones:</label>
                   <textarea
                     rows="3"
                     value={alumno["Observaciones sobre el alumno:"]}
