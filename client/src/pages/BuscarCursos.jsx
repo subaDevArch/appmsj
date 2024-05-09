@@ -3,7 +3,7 @@ import DataTable from '../components/TablaCursos'
 
 function BuscarCursos() {
   return (
-    <div>
+    <div className="h-screen bg-gray-50">
         <DataTable/>
     </div>
   )

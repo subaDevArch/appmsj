@@ -1,11 +1,12 @@
-import React from 'react'
-import DatosAlumnos from '../components/DatosAlumnos'
+import React from "react";
+import DatosAlumnos from "../components/DatosAlumnos";
 
 function DatosAlumnosPage() {
   return (
-    
-    <div><DatosAlumnos/></div>
-  )
+    <div className="h-screen bg-gray-50">
+      <DatosAlumnos />
+    </div>
+  );
 }
 
-export default DatosAlumnosPage
+export default DatosAlumnosPage;
