@@ -59,9 +59,11 @@ function NavLinks() {
 
 function Nav() {
   return (
-    <nav className="z-10 flex justify-center w-full py-1.5 bg-gray-100 border-t border-gray-400">
+    <nav className="z-10 fixed bottom-0 left-0 w-full bg-gray-100 border-t border-gray-400">
+    <div className="container mx-auto">
       <NavLinks />
-    </nav>
+    </div>
+  </nav>
   );
 }
 
