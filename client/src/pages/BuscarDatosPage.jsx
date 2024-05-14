@@ -3,8 +3,8 @@ import TablaDatosAlumnos from '../components/TablaDatosAlumnos'
 
 function BuscarDatosPage() {
   return (
-    <div className="h-screen">
-      <div className='mb-16'><TablaDatosAlumnos/></div>
+    <div className="h-screen mb-16">
+      <div><TablaDatosAlumnos/></div>
     </div>
     
   )
