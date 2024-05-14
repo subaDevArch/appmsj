@@ -79,7 +79,7 @@ const TablaAlumnos = () => {
         responsive
       />
       
-      <button onClick={handleDetalleClick} className="bg-gray-100 hover:bg-gray-300 hover:text-white py-3 px-3 rounded-xl shadow-md text-gray-500 w-full mt-4">
+      <button onClick={handleDetalleClick} className="bg-gray-150 hover:bg-gray-300 hover:text-white py-3 px-3 rounded-xl shadow-md text-gray-500 w-full mt-4 mb-16">
         Enviar Mensaje
       </button>
     </div>
