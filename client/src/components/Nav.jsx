@@ -60,7 +60,7 @@ function NavLinks() {
 function Nav() {
   return (
     <nav className="z-10 fixed bottom-0 left-0 w-full bg-gray-100 border-t border-gray-400">
-      <div className="container mx-auto flex justify-center "> {/* Modificación aquí */}
+      <div className="container mx-auto flex justify-center pt-2 mb-2"> {/* Modificación aquí */}
         <NavLinks />
       </div>
     </nav>
