@@ -3,7 +3,7 @@ import TablaDatosAlumnos from '../components/TablaDatosAlumnos'
 
 function BuscarDatosPage() {
   return (
-    <div className="h-screen">
+    <div className="">
       <div><TablaDatosAlumnos/></div>
     </div>
     
