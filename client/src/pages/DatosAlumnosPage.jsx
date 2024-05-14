@@ -3,7 +3,7 @@ import DatosAlumnos from "../components/DatosAlumnos";
 
 function DatosAlumnosPage() {
   return (
-    <div className="h-screen bg-gray-50">
+    <div className="h-screen">
       <DatosAlumnos />
     </div>
   );
