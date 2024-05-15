@@ -18,12 +18,14 @@ function LoginPage() {
   //signin(data).catch(handleLoginError);
   //});
 
-  const onSubmit = handleSubmit((data) => {
-    signin(data)
-      .then((response) => {
-        console.log("User ID:", response.data.id); // <-- Imprime el ID del usuario
-      })
-      .catch(handleLoginError);
+  const onSubmit = handleSubmit(async (data) => {
+    try {
+      const response = await signin(data);
+      console.log("User ID:", response.id); // <-- Accede directamente al ID en la respuesta
+      // Resto del código para redireccionar o manejar la autenticación
+    } catch (error) {
+      handleLoginError(error);
+    }
   });
 
   useEffect(() => {
