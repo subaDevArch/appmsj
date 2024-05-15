@@ -20,6 +20,7 @@ function LoginPage() {
 
   useEffect(() => {
     if (isAuthenticated) navigate("/apps");
+    console.log(`Welcome, ${user.username}!`);
     if (signinErrors && signinErrors.length > 0) {
       const errorMessages = signinErrors.join(", ");
       setErrorMessage(errorMessages);
