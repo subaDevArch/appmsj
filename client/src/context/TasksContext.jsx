@@ -1,11 +1,11 @@
-import React, { useState, createContext, useContext, useEffect } from "react";
+import React, { useState, createContext, useContext } from "react";
 import {
   createTaskRequest,
   getTasksRequest,
   deleteTaskRequest,
   getTaskRequest,
-  updateTaskRequest
-} from "../api/tasks.js";
+  updateTaskRequest,
+} from "../api/tasks";
 
 export const TaskContext = createContext();
 
@@ -26,15 +26,14 @@ export const TaskProvider = ({ children }) => {
       const res = await getTasksRequest();
       setTasks(res.data);
     } catch (error) {
-      console.error("Error al obtener las tareas:", error);
+      console.log(error);
     }
   };
 
   const createTask = async (task) => {
     try {
       const res = await createTaskRequest(task);
-      console.log("Tarea creada:", res.data);
-      getTasks(); // Actualizar la lista de tareas después de crear una nueva tarea
+      console.log(res);
     } catch (error) {
       console.error("Error al crear la tarea:", error);
     }
@@ -44,10 +43,10 @@ export const TaskProvider = ({ children }) => {
     try {
       const res = await deleteTaskRequest(id);
       if (res.status === 204) {
-        // Filtrar y actualizar el estado de tareas si es necesario
+        setTasks(tasks.filter((task) => task._id !== id));
       }
     } catch (error) {
-      console.error("Error al eliminar la tarea:", error);
+      console.log(error);
     }
   };
 
@@ -56,29 +55,24 @@ export const TaskProvider = ({ children }) => {
       const res = await getTaskRequest(id);
       return res.data;
     } catch (error) {
-      console.error("Error al obtener la tarea por ID:", error);
+      console.log(error);
     }
   };
 
   const updateTask = async (id, task) => {
     try {
       await updateTaskRequest(id, task);
-      getTasks(); // Actualizar la lista de tareas después de actualizar una tarea
     } catch (error) {
-      console.error("Error al actualizar la tarea:", error);
+      console.log(error);
     }
   };
-
-  // Cargar las tareas inicialmente al montar el componente
-  useEffect(() => {
-    getTasks();
-  }, []);
 
   return (
     <TaskContext.Provider
       value={{
         tasks,
         createTask,
+        getTasks,
         deleteTask,
         getTask,
         updateTask,
