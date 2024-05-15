@@ -50,7 +50,7 @@ export const login = async (req, res) => {
         message: "Incorrect password",
       });
 
-    console.log("User logged in with ID:", userFound.username); // <-- Imprime el ID del usuario
+    console.log("User logged:", userFound.username); // <-- Imprime el ID del usuario
 
     const token = await createAccessToken({ id: userFound._id });
 

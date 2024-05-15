@@ -37,6 +37,7 @@ function LoginPage() {
   const handleLoginError = (error) => {
     console.log("Error en inicio de sesión:", error);
     if (error.response && error.response.status === 400) {
+      console.log("Contraseña incorrecta");
       setErrorMessage("Contraseña incorrecta");
     }
   };
@@ -84,8 +85,6 @@ function LoginPage() {
 }
 
 export default LoginPage;
-
-
 
 /*import { useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthContext";
