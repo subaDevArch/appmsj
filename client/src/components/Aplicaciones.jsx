@@ -120,6 +120,15 @@ function Aplicaciones() {
         </div>
         <span className="text-xs mt-2 ml-2.5">Calendario Escolar</span>
       </a>
+
+      {isAuthenticated && (
+        <Link to="/add-task" className="flex flex-col items-center">
+          <div className="bg-white hover:bg-gray-100 text-blue-500 font-bold py-8 px-8 rounded-xl shadow-md flex items-center justify-center">
+            <FileText className="w-9 h-9" />
+          </div>
+          <span className="text-xs mt-2">agregar tarea</span>
+        </Link>
+      )}
      
      
      
