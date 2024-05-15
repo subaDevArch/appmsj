@@ -19,8 +19,8 @@ function LoginPage() {
     try {
       await signin(data); // Llama a la función de inicio de sesión sin almacenar la respuesta directamente
       if (isAuthenticated && user) {
-        console.log(`Welcome, ${user.username}!`); // Muestra un mensaje de bienvenida en la consola
         navigate("/apps"); // Redirige a la página de aplicaciones después del inicio de sesión exitoso
+        console.log(`Welcome, ${user.username}!`); // Muestra un mensaje de bienvenida en la consola
       }
     } catch (error) {
       handleLoginError(error);
@@ -37,7 +37,6 @@ function LoginPage() {
   const handleLoginError = (error) => {
     console.log("Error en inicio de sesión:", error);
     if (error.response && error.response.status === 400) {
-      console.log("Contraseña incorrecta");
       setErrorMessage("Contraseña incorrecta");
     }
   };
