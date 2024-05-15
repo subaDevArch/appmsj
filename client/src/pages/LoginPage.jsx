@@ -21,7 +21,7 @@ function LoginPage() {
   const onSubmit = handleSubmit(async (data) => {
     try {
       const response = await signin(data);
-      console.log("User ID:", response.id); // <-- Accede directamente al ID en la respuesta
+      console.log("User ID:", response.data.id); // <-- Accede directamente al ID en la respuesta
       // Resto del código para redireccionar o manejar la autenticación
     } catch (error) {
       handleLoginError(error);
