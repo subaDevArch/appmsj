@@ -14,10 +14,6 @@ function NavLinks() {
 
   return (
     <div className="flex gap-4">
-      {/* Renderiza el mensaje de bienvenida solo si el usuario está autenticado y user es válido */}
-      {isAuthenticated && user && (
-        <p className="ml-4 text-gray-600">Welcome, {user.username}!</p>
-      )}
       <Link
         to="/"
         className="flex flex-col items-center px-4 py-1 rounded-sm"
@@ -44,21 +40,26 @@ function NavLinks() {
       </Link>
 
       {isAuthenticated ? (
-        <Link
-          to="/"
-          className="flex flex-col items-center px-4 py-1 rounded-sm"
-          onClick={() => {
-            handleIconClick("logout");
-            logout();
-          }}
-        >
-          <UserX
-            className={`w-8 h-8 mb-1.5 ${
-              highlightedIcon === "logout" ? "text-blue-500" : ""
-            }`}
-          />
-          <span className="text-xs">Logout</span>
-        </Link>
+        <>
+          <p className="ml-4 text-gray-600">
+            Welcome, {user && user.username}!
+          </p>
+          <Link
+            to="/"
+            className="flex flex-col items-center px-4 py-1 rounded-sm"
+            onClick={() => {
+              handleIconClick("logout");
+              logout();
+            }}
+          >
+            <UserX
+              className={`w-8 h-8 mb-1.5 ${
+                highlightedIcon === "logout" ? "text-blue-500" : ""
+              }`}
+            />
+            <span className="text-xs">Logout</span>
+          </Link>
+        </>
       ) : (
         <Link
           to="/login"
@@ -81,8 +82,6 @@ function Nav() {
   return (
     <nav className="z-10 fixed bottom-0 left-0 w-full bg-gray-100 border-t border-gray-400">
       <div className="container mx-auto flex justify-center pt-2 mb-2">
-        {" "}
-        {/* Modificación aquí */}
         <NavLinks />
       </div>
     </nav>
