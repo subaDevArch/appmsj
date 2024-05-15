@@ -6,7 +6,7 @@ export const getTasks = async (req, res) => {
     res.json(tasks);
   } catch (error) {
     console.error("Error al obtener tareas:", error);
-    return res.status(500).json({ message: 'Algo salió mal' });
+    return res.status(500).json({ message: "Algo salió mal" });
   }
 };
 
@@ -17,12 +17,13 @@ export const createTask = async (req, res) => {
       title,
       description,
       date,
+      user: req.user._id,
     });
     const savedTask = await newTask.save();
     res.json(savedTask);
   } catch (error) {
     console.error("Error al crear tarea:", error);
-    return res.status(500).json({ message: 'Algo salió mal' });
+    return res.status(500).json({ message: "Algo salió mal" });
   }
 };
 
@@ -35,7 +36,7 @@ export const getTask = async (req, res) => {
     res.json(task);
   } catch (error) {
     console.error("Error al obtener tarea por ID:", error);
-    return res.status(500).json({ message: 'Algo salió mal' });
+    return res.status(500).json({ message: "Algo salió mal" });
   }
 };
 
@@ -48,7 +49,7 @@ export const deleteTask = async (req, res) => {
     return res.sendStatus(204);
   } catch (error) {
     console.error("Error al eliminar tarea:", error);
-    return res.status(500).json({ message: 'Algo salió mal' });
+    return res.status(500).json({ message: "Algo salió mal" });
   }
 };
 
@@ -63,6 +64,6 @@ export const updateTask = async (req, res) => {
     res.json(task);
   } catch (error) {
     console.error("Error al actualizar tarea:", error);
-    return res.status(500).json({ message: 'Algo salió mal' });
+    return res.status(500).json({ message: "Algo salió mal" });
   }
 };
