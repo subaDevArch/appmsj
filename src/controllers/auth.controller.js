@@ -50,6 +50,8 @@ export const login = async (req, res) => {
         message: "Incorrect password",
       });
 
+    console.log("User logged in with ID:", userFound._id); // <-- Imprime el ID del usuario
+
     const token = await createAccessToken({ id: userFound._id });
 
     // Configura la cookie con las opciones adecuadas
@@ -112,4 +114,3 @@ export const verifyToken = async (req, res) => {
     });
   });
 };
-
