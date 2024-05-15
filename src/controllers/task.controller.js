@@ -13,12 +13,19 @@ export const getTasks = async (req, res) => {
 export const createTask = async (req, res) => {
   try {
     const { title, description, date } = req.body;
+    
+    // Verifica si req.user está definido y tiene el _id
+    if (!req.user || !req.user._id) {
+      return res.status(401).json({ message: "Usuario no autenticado" });
+    }
+
     const newTask = new Task({
       title,
       description,
       date,
       user: req.user._id,
     });
+
     const savedTask = await newTask.save();
     res.json(savedTask);
   } catch (error) {
