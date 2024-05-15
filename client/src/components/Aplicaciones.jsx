@@ -13,8 +13,10 @@ import {
   BookPlus,
   CalendarDays
 } from "lucide-react";
+import { useAuth } from "../context/AuthContext";
 
 function Aplicaciones() {
+  const { isAuthenticated, user } = useAuth();
   return (
     <>
     
