@@ -20,7 +20,7 @@ function LoginPage() {
       await signin(data); // Llama a la función de inicio de sesión sin almacenar la respuesta directamente
       if (isAuthenticated && user) {
         navigate("/apps"); // Redirige a la página de aplicaciones después del inicio de sesión exitoso
-        console.log(`Welcome, ${user.username}!`); // Muestra un mensaje de bienvenida en la consola
+        //console.log(`Welcome, ${user.username}!`); // Muestra un mensaje de bienvenida en la consola
       }
     } catch (error) {
       handleLoginError(error);
