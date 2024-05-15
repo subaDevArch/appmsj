@@ -16,7 +16,7 @@ function LoginPage() {
 
   const onSubmit = handleSubmit((data) => {
     signin(data).catch(handleLoginError);
-    console.log(`Welcome, ${user.username}!`);
+    
   });
 
   useEffect(() => {
