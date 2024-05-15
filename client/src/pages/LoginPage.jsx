@@ -16,11 +16,12 @@ function LoginPage() {
 
   const onSubmit = handleSubmit((data) => {
     signin(data).catch(handleLoginError);
+    console.log(`Welcome, ${user.username}!`);
   });
 
   useEffect(() => {
     if (isAuthenticated) navigate("/apps");
-    console.log(`Welcome, ${user.username}!`);
+    
     if (signinErrors && signinErrors.length > 0) {
       const errorMessages = signinErrors.join(", ");
       setErrorMessage(errorMessages);

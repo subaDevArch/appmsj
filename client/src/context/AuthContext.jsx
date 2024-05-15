@@ -12,7 +12,7 @@ export const useAuth = () => {
 };
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [errors, setErrors] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -26,7 +26,7 @@ export const AuthProvider = ({ children }) => {
     }
   }, [errors]);
 
-  const signup = async (user) => {
+  const singup = async (user) => {
     try {
       const res = await registerRequest(user);
       if (res.status === 200) {
@@ -35,49 +35,45 @@ export const AuthProvider = ({ children }) => {
       }
     } catch (error) {
       console.log(error.response.data);
-      setErrors([error.response.data.message]);
+      setErrors(error.response.data.message);
     }
   };
 
   const signin = async (user) => {
     try {
       const res = await loginRequest(user);
-      if (res.data) {
-        setUser(res.data);
-        setIsAuthenticated(true);
-      }
+      setUser(res.data);
+      setIsAuthenticated(true);
     } catch (error) {
       console.log(error);
-      setErrors(["Error signing in"]);
+      // setErrors(error.response.data.message);
     }
   };
 
-  const logout = () => {
-    Cookies.remove('token');
-    setIsAuthenticated(false);
-    setUser({});
-  };
+const logout = () => {
+  Cookies.remove('token');
+  setIsAuthenticated(false);
+  setUser(null);
+}
 
   useEffect(() => {
     const checkLogin = async () => {
-      const token = Cookies.get('token');
-      if (!token) {
+      const cookies = Cookies.get();
+      if (!cookies.token) {
         setIsAuthenticated(false);
         setLoading(false);
         return;
       }
 
       try {
-        const res = await verifyTokenRequest(token);
-        if (res.data) {
-          setIsAuthenticated(true);
-          setUser(res.data);
-        } else {
-          setIsAuthenticated(false);
-        }
+        const res = await verifyTokenRequest(cookies.token);
+        console.log(res);
+        if (!res.data) return setIsAuthenticated(false);
+        setIsAuthenticated(true);
+        setUser(res.data);
+        setLoading(false);
       } catch (error) {
         setIsAuthenticated(false);
-      } finally {
         setLoading(false);
       }
     };
@@ -86,7 +82,7 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ signin, signup, user, logout, isAuthenticated, errors, loading }}
+      value={{ signin, singup, user, logout, isAuthenticated, errors, loading }}
     >
       {children}
     </AuthContext.Provider>
