@@ -10,31 +10,29 @@ function LoginPage() {
     formState: { errors },
   } = useForm();
 
-  const { signin, errors: signinErrors, isAuthenticated } = useAuth();
+  const { signin, errors: signinErrors, isAuthenticated, user } = useAuth(); // Agrega 'user' al destructuring
+
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
 
-  //const onSubmit = handleSubmit((data) => {
-  //signin(data).catch(handleLoginError);
-  //});
-
   const onSubmit = handleSubmit(async (data) => {
     try {
-      const response = await signin(data);
-      console.log("User ID:", response.data.id); // <-- Accede directamente al ID en la respuesta
-      // Resto del código para redireccionar o manejar la autenticación
+      await signin(data); // Llama a la función de inicio de sesión sin almacenar la respuesta directamente
+      if (isAuthenticated && user) {
+        console.log(`Welcome, ${user.username}!`); // Muestra un mensaje de bienvenida en la consola
+        navigate("/apps"); // Redirige a la página de aplicaciones después del inicio de sesión exitoso
+      }
     } catch (error) {
       handleLoginError(error);
     }
   });
 
   useEffect(() => {
-    if (isAuthenticated) navigate("/apps");
     if (signinErrors && signinErrors.length > 0) {
       const errorMessages = signinErrors.join(", ");
       setErrorMessage(errorMessages);
     }
-  }, [isAuthenticated, signinErrors, navigate]);
+  }, [signinErrors]);
 
   const handleLoginError = (error) => {
     console.log("Error en inicio de sesión:", error);
@@ -86,6 +84,7 @@ function LoginPage() {
 }
 
 export default LoginPage;
+
 
 
 /*import { useForm } from "react-hook-form";
