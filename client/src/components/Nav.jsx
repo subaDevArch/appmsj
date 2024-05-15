@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { UserPlus, UserCheck, UserX, LayoutGrid, Home } from "lucide-react";
+import React, { useState } from 'react';
 
 function NavLinks() {
   const { isAuthenticated, logout, user } = useAuth();
