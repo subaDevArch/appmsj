@@ -33,7 +33,7 @@ function TaskFormPage() {
   });
 
   return (
-    <div className="bg-zinc-800 max-w-md w-full p-10 rounded-md">
+    <div className="bg-zinc-800 w-full p-10 rounded-md">
       <form onSubmit={onSubmit}>
         <input
           type="text"
@@ -42,7 +42,7 @@ function TaskFormPage() {
           autoFocus
           className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"
         />
-
+  
         <textarea
           rows="3"
           placeholder="Description"
@@ -53,6 +53,7 @@ function TaskFormPage() {
       </form>
     </div>
   );
+  
 }
 
 export default TaskFormPage;
