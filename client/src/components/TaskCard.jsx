@@ -1,4 +1,4 @@
-import { useTasks } from "../context/TasksContext";
+/*import { useTasks } from "../context/TasksContext";
 import {Link} from 'react-router-dom'
 
 function TaskCard({ task }) {
@@ -20,6 +20,46 @@ function TaskCard({ task }) {
       </header>
       <p className="text-slate-300">{task.description}</p>
       <p>{new Date(task.date).toLocaleDateString()}</p>
+    </div>
+  );
+}
+
+export default TaskCard;*/
+import { useTasks } from "../context/TasksContext";
+import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+
+function TaskCard({ task }) {
+  const { isAuthenticated, deleteTask } = useTasks();
+  const { user } = useAuth();
+
+  return (
+    <div className="bg-zinc-800 w-full p-4 rounded-md shadow-md">
+      <header className="flex justify-between items-center mb-4">
+        <h1 className="text-lg font-bold">{task.title}</h1>
+        {isAuthenticated && (
+          <div className="flex gap-x-2">
+            <button
+              onClick={() => {
+                deleteTask(task._id);
+              }}
+              className="text-sm text-red-500 hover:text-red-700"
+            >
+              delete
+            </button>
+            <Link
+              to={`/tasks/${task._id}`}
+              className="text-sm text-blue-500 hover:text-blue-700"
+            >
+              edit
+            </Link>
+          </div>
+        )}
+      </header>
+      <p className="text-sm text-slate-300 mb-2">{task.description}</p>
+      <p className="text-sm text-gray-500">
+        {new Date(task.date).toLocaleDateString()}
+      </p>
     </div>
   );
 }

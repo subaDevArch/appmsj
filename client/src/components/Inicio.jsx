@@ -1,4 +1,5 @@
 import React from "react";
+import TaskPage from "../pages/TasksPage"
 
 function Inicio() {
   return (
@@ -24,6 +25,9 @@ function Inicio() {
           Noticias Preceptoria
         </h2>
         <hr className="my-4" />
+        <div>
+          <TaskPage/>
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {/* Aquí puedes colocar los elementos destacados */}
           <div className="bg-white p-4 rounded-lg shadow-md">

@@ -20,8 +20,8 @@ const origins = ["https://frontappmsj.onrender.com","http://localhost:5173"]
 // Middleware para permitir solicitudes CORS desde el origen especificado
 app.use(
   cors({
-    //origin: "http://localhost:5173",
-    origin: "https://preceptor2-00.onrender.com",
+    origin: "http://localhost:5173",
+    //origin: "https://preceptor2-00.onrender.com",
     credentials:true
   })
 );
