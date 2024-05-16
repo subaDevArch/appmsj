@@ -23,6 +23,7 @@ import Header from "./components/Header";
 import AppPage from "./pages/AppPage";
 import BuscarDatosPage from "./pages/BuscarDatosPage";
 import DatosAlumnosPage from "./pages/DatosAlumnosPage";
+import ProfesoresAusentes from "./pages/ProfesoresAusentes";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
 
                 <Route element={<ProtectedRoute />}>
                   <Route path="/tasks" element={<TasksPage />} />
+                  <Route path="/ausentes" element={<ProfesoresAusentes />} />
                   <Route
                     path="/enviar-comunicado"
                     element={<EnviarComunicadoPage />}

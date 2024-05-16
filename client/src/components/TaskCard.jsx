@@ -30,14 +30,14 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 function TaskCard({ task }) {
-  const { isAuthenticated, deleteTask } = useTasks();
-  const { user } = useAuth();
+  const { deleteTask } = useTasks();
+  const { isAuthenticated } = useAuth(); // Obtener el estado de autenticación del contexto
 
   return (
-    <div className="bg-zinc-800 w-full p-4 rounded-md shadow-md">
+    <div className="from bg-red-400 to-gray-300 w-full p-4 rounded-md shadow-md">
       <header className="flex justify-between items-center mb-4">
-        <h1 className="text-lg font-bold">{task.title}</h1>
-        {isAuthenticated && (
+        <h1 className="text-lg font-bold text-white">{task.title}</h1>
+        {isAuthenticated && ( // Verificar si el usuario está autenticado antes de mostrar los botones
           <div className="flex gap-x-2">
             <button
               onClick={() => {
@@ -45,19 +45,19 @@ function TaskCard({ task }) {
               }}
               className="text-sm text-red-500 hover:text-red-700"
             >
-              delete
+              Borrar
             </button>
             <Link
               to={`/tasks/${task._id}`}
               className="text-sm text-blue-500 hover:text-blue-700"
             >
-              edit
+              Editar
             </Link>
           </div>
         )}
       </header>
-      <p className="text-sm text-slate-300 mb-2">{task.description}</p>
-      <p className="text-sm text-gray-500">
+      <p className="text-sm text-white mb-2">{task.description}</p>
+      <p className="text-sm text-white">
         {new Date(task.date).toLocaleDateString()}
       </p>
     </div>

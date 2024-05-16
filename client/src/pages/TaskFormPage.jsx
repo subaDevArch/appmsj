@@ -29,7 +29,7 @@ function TaskFormPage() {
       createTask(data);
     }
 
-    navigate("/tasks");
+    navigate("/ausentes");
   });
 
   return (
