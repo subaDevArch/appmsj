@@ -1,7 +1,7 @@
 // App.jsx
 
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import HomePage from "./pages/HomePage";
@@ -30,7 +30,7 @@ function App() {
     <AuthProvider>
       <TaskProvider>
         <AlumnoProvider>
-          <BrowserRouter>
+          <HashRouter>
             <main /*className="container mx-auto px-10"*/>
               <Routes>
                 <Route path="/" element={<HomePage />} />
@@ -61,7 +61,7 @@ function App() {
               </Routes>
               <Header />
             </main>
-          </BrowserRouter>
+          </HashRouter>
         </AlumnoProvider>
       </TaskProvider>
     </AuthProvider>
