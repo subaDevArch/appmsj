@@ -30,7 +30,7 @@ function App() {
     <AuthProvider>
       <TaskProvider>
         <AlumnoProvider>
-          <HashRouter>
+          <BrowserRouter>
             <main /*className="container mx-auto px-10"*/>
               <Routes>
                 <Route path="/" element={<HomePage />} />
@@ -61,7 +61,7 @@ function App() {
               </Routes>
               <Header />
             </main>
-          </HashRouter>
+          </BrowserRouter>
         </AlumnoProvider>
       </TaskProvider>
     </AuthProvider>
