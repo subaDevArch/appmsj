@@ -123,7 +123,7 @@ const DetallesAlumnos = () => {
             <hr />
             <button
               type="submit"
-              className="bg-gray-100 hover:bg-gray-300 hover:text-white py-3 px-3 rounded-xl shadow-md text-gray-500 w-full mt-4"
+              className="bg-gradient-to-r from-green-700 to-gray-600 hover:bg-gray-300 hover:text-white py-3 px-3 rounded-xl shadow-md text-white w-full mt-4"
             >
               Enviar Mensaje
             </button>
@@ -137,3 +137,4 @@ const DetallesAlumnos = () => {
 };
 
 export default DetallesAlumnos;
+

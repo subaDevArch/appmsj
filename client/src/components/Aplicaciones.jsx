@@ -11,7 +11,8 @@ import {
   NotebookTabs,
   FileClock,
   BookPlus,
-  CalendarDays
+  CalendarDays,
+  Megaphone,
 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 
@@ -126,9 +127,9 @@ function Aplicaciones() {
       
         <Link to="/ausentes" className="flex flex-col items-center">
           <div className="bg-white hover:bg-gray-100 text-blue-500 font-bold py-8 px-8 rounded-xl shadow-md flex items-center justify-center">
-            <FileText className="w-9 h-9" />
+            <Megaphone className="w-9 h-9" />
           </div>
-          <span className="text-xs mt-2">Profesores Ausentes</span>
+          <span className="text-xs mt-2">Noticias Preceptoria</span>
         </Link>
       
      

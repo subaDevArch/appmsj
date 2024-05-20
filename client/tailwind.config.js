@@ -11,6 +11,9 @@ module.exports = {
         'noto': ['Noto Sans Thai', 'sans-serif'],
         'roboto': ['Roboto', 'sans-serif'],
       },
+      colors: {
+        'custom-dark-blue': '#05161A',
+      },
     },
   },
   plugins: [],

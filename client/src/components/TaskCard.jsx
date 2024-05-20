@@ -34,7 +34,7 @@ function TaskCard({ task }) {
   const { isAuthenticated } = useAuth(); // Obtener el estado de autenticación del contexto
 
   return (
-    <div className="from bg-red-400 to-gray-300 w-full p-4 rounded-md shadow-md">
+    <div className="from bg-gray-600 to-gray-300 w-full p-4 rounded-md shadow-md">
       <header className="flex justify-between items-center mb-4">
         <h1 className="text-lg font-bold text-white">{task.title}</h1>
         {isAuthenticated && ( // Verificar si el usuario está autenticado antes de mostrar los botones

@@ -6,7 +6,7 @@ function AppPage() {
   const { isAuthenticated, user } = useAuth();
 
   return (
-    <div className="h-screen"> {/* Aquí se aplica height: 100vh */}
+    <div className="h-screen bg-gray-200"> {/* Aquí se aplica height: 100vh */}
      <div className="flex flex-col items-center justify-center bg-gradient-to-r from-green-700 to-gray-600 rounded-2xl rounded-t-none shadow-xl shadow-gray-400 p-3 text-center">
   <h1 className=" text-white text-2xl font-bold font-orbitron mb-1">Apps</h1> {/* Añadido un margen inferior */}
   {isAuthenticated && user && (
