@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 import { enviarMensajeRequest } from "../api/send"; // Importa la función enviarMensajeRequest
+
+const MySwal = withReactContent(Swal);
 
 const DetallesAlumnos = () => {
   const [email, setEmail] = useState(""); // Estado para almacenar el correo electrónico
@@ -8,8 +12,10 @@ const DetallesAlumnos = () => {
   const [mensaje, setMensaje] = useState(""); // Estado para almacenar el mensaje
   const [agruparEmails, setAgruparEmails] = useState(true); // Estado para controlar si se agrupan automáticamente los correos electrónicos
   const [selectedCourses, setSelectedCourses] = useState([]); // Estado para almacenar los cursos seleccionados
+  const [isSending, setIsSending] = useState(false); // Estado para controlar la visibilidad del botón
 
   const location = useLocation();
+  const navigate = useNavigate(); // Hook de navegación
   const selectedData = location.state ? location.state.selectedAlumnos : [];
   
   useEffect(() => {
@@ -36,13 +42,19 @@ const DetallesAlumnos = () => {
 
   const sendMail = async (e) => {
     e.preventDefault();
+    setIsSending(true); // Oculta el botón al iniciar el envío
     try {
-      console.log("Email:", email);
-      console.log("Asunto:", subject);
-      console.log("Mensaje:", mensaje);
+      //console.log("Email:", email);
+      //console.log("Asunto:", subject);
+      //console.log("Mensaje:", mensaje);
   
       if (!email.trim() || !subject.trim() || !mensaje.trim()) {
-        console.log("Por favor, completa todos los campos.");
+        MySwal.fire({
+          icon: 'warning',
+          title: 'Campos Incompletos',
+          text: 'Por favor, completa todos los campos.',
+        });
+        setIsSending(false); // Muestra el botón si hay campos incompletos
         return;
       }
   
@@ -59,15 +71,33 @@ const DetallesAlumnos = () => {
       });
   
       if (response.ok) {
-        console.log("Email enviado correctamente");
+        MySwal.fire({
+          icon: 'success',
+          title: 'Éxito',
+          text: 'Mensaje enviado con éxito',
+        }).then(() => {
+          // Redirige a la página /buscar-por-curso después de mostrar la alerta
+          navigate("/buscar-por-curso");
+        });
+        // Limpiar los campos si es necesario
         setEmail("");
         setSubject("");
         setMensaje("");
       } else {
-        console.log("Error al enviar el correo");
+        MySwal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Hubo un problema al enviar el mensaje',
+        });
+        setIsSending(false); // Muestra el botón si hay un error
       }
     } catch (error) {
-      console.error("Error al enviar la solicitud:", error);
+      MySwal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: `Error al enviar la solicitud: ${error.message}`,
+      });
+      setIsSending(false); // Muestra el botón si hay un error
     }
   };
 
@@ -144,12 +174,14 @@ const DetallesAlumnos = () => {
             ></textarea>
           </div>
           <hr />
-          <button
-            type="submit"
-            className="bg-gray-100 hover:bg-gray-300 hover:text-white py-3 px-3 rounded-xl shadow-md text-gray-500 w-full mt-4"
-          >
-            Enviar Mensaje
-          </button>
+          {!isSending && ( // Condicional para mostrar/ocultar el botón
+            <button
+              type="submit"
+              className="bg-gray-100 hover:bg-gray-300 hover:text-white py-3 px-3 rounded-xl shadow-md text-gray-500 w-full mt-4"
+            >
+              Enviar Mensaje
+            </button>
+          )}
         </form>
       ) : (
         <p>No se han seleccionado alumnos.</p>

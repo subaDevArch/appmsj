@@ -7,7 +7,6 @@ export const AuthContext = createContext();
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) throw new Error("useAuth must be used within an AuthProvider");
-
   return context;
 };
 
@@ -26,7 +25,7 @@ export const AuthProvider = ({ children }) => {
     }
   }, [errors]);
 
-  const singup = async (user) => {
+  const signup = async (user) => {
     try {
       const res = await registerRequest(user);
       if (res.status === 200) {
@@ -46,15 +45,16 @@ export const AuthProvider = ({ children }) => {
       setIsAuthenticated(true);
     } catch (error) {
       console.log(error);
-      // setErrors(error.response.data.message);
+      setErrors([error.response.data.message || "Error al iniciar sesión"]);
+      throw error; // Propagate the error
     }
   };
 
-const logout = () => {
-  Cookies.remove('token');
-  setIsAuthenticated(false);
-  setUser(null);
-}
+  const logout = () => {
+    Cookies.remove("token");
+    setIsAuthenticated(false);
+    setUser(null);
+  };
 
   useEffect(() => {
     const checkLogin = async () => {
@@ -82,7 +82,7 @@ const logout = () => {
 
   return (
     <AuthContext.Provider
-      value={{ signin, singup, user, logout, isAuthenticated, errors, loading }}
+      value={{ signin, signup, user, logout, isAuthenticated, errors, loading }}
     >
       {children}
     </AuthContext.Provider>

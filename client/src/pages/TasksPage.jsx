@@ -9,12 +9,13 @@ function TasksPage() {
     getTasks();
   }, []);
 
+  const sortedTasks = tasks.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
   if (tasks.length === 0) return <h1>No Tasks</h1>;
 
   return (
-    
     <div>
-      {tasks.map((task) => (
+      {sortedTasks.map((task) => (
         <div key={task._id} className="mb-4">
           <TaskCard task={task} />
         </div>
