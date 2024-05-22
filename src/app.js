@@ -44,7 +44,7 @@ app.use(cookieParser());
 app.use("/api", authRoutes);
 app.use("/api", taskRoutes);
 app.use("/api", alumnosRoutes);
-app.use("/api", profesoresRoutes);
+
 app.use("/api", sendmsj);
 
 // Exportación del objeto de la aplicación Express
