@@ -1,7 +1,9 @@
 import React from 'react'
 import TablaDatosAlumnos from '../components/TablaDatosAlumnos'
+import { useAuth } from "../context/AuthContext";
 
 function BuscarDatosPage() {
+  const { isAuthenticated, user } = useAuth();
   return (
     <div className="h-screen mb-16">
        <div className="flex flex-col items-center justify-center bg-gradient-to-r from-green-700 to-gray-600 rounded-2xl rounded-t-none shadow-xl shadow-gray-400 p-3 text-center">

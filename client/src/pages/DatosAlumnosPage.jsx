@@ -1,7 +1,9 @@
 import React from "react";
 import DatosAlumnos from "../components/DatosAlumnos";
+import { useAuth } from "../context/AuthContext";
 
 function DatosAlumnosPage() {
+  const { isAuthenticated, user } = useAuth();
   return (
     <div className="h-screen">
        <div className="flex flex-col items-center justify-center bg-gradient-to-r from-green-700 to-gray-600 rounded-2xl rounded-t-none shadow-xl shadow-gray-400 p-3 text-center">
