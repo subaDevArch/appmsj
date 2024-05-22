@@ -8,7 +8,7 @@ function HomePage() {
   return (
     <div className="h-screen bg-gray-100">
       <div className="flex flex-col items-center justify-center bg-gradient-to-r from-green-700 to-gray-600 rounded-2xl rounded-t-none shadow-xl shadow-gray-400 p-3 text-center">
-  <h1 className=" text-white text-2xl font-bold font-orbitron mb-1">PRECEPTOR</h1> {/* Añadido un margen inferior */}
+  <h1 className=" text-white text-2xl font-bold font-orbitron mb-1">PRECEPTOR 2.00</h1> {/* Añadido un margen inferior */}
   {isAuthenticated && user && (
     <p className="text-white text-sm">Bienvenido, {user.username}!</p>
   )}

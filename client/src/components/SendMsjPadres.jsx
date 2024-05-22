@@ -167,7 +167,7 @@ const DetallesAlumnos = () => {
             </label>
             <textarea
               id="mensaje"
-              rows="3"
+              rows="6"
               value={mensaje}
               onChange={(e) => setMensaje(e.target.value)}
               className="border border-gray-300 rounded px-4 py-2 w-full"

@@ -24,12 +24,15 @@ import AppPage from "./pages/AppPage";
 import BuscarDatosPage from "./pages/BuscarDatosPage";
 import DatosAlumnosPage from "./pages/DatosAlumnosPage";
 import ProfesoresAusentes from "./pages/ProfesoresAusentes";
+import { ProfesorProvider } from "./context/ProfesorContext";
+import ProfesoresHorarios from "./pages/ProfesoresHorarios";
 
 function App() {
   return (
     <AuthProvider>
       <TaskProvider>
         <AlumnoProvider>
+          <ProfesorProvider>
           <BrowserRouter>
             <main /*className="container mx-auto px-10"*/>
               <Routes>
@@ -37,6 +40,7 @@ function App() {
                 <Route path="/login" element={<LoginPage />} />
 
                 <Route path="/apps" element={<AppPage />} />
+                <Route path="/profesores-horarios" element={<ProfesoresHorarios />} />
 
                 <Route element={<ProtectedRoute />}>
                   <Route path="/tasks" element={<TasksPage />} />
@@ -62,6 +66,7 @@ function App() {
               <Header />
             </main>
           </BrowserRouter>
+          </ProfesorProvider>
         </AlumnoProvider>
       </TaskProvider>
     </AuthProvider>

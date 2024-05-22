@@ -58,13 +58,13 @@ const TablaCursos = () => {
     <div className="max-w-screen-xl mx-auto p-8">
       <input
         type="text"
-        placeholder="Buscar por Apellido"
-        className="border border-gray-300 rounded px-4 py-2 mb-4 w-full"
+        placeholder="Buscar por Curso"
+        className="border border-green-600 rounded px-4 py-2 mb-4 w-full"
         onChange={handleChange}
       />
 
       <DataTable
-        title="Búsqueda por alumno"
+        title="Buscar Por Curso"
         columns={columns}
         data={filteredAlumnos}
         selectableRows

@@ -62,12 +62,12 @@ const TablaAlumnos = () => {
       <input
         type="text"
         placeholder="Buscar por Apellido"
-        className="border border-gray-300 rounded px-4 py-2 mb-4 w-full"
+        className="border border-green-600 rounded px-4 py-2 mb-4 w-full"
         onChange={handleChange}
       />
 
       <DataTable
-        title="Búsqueda por alumno"
+        title="Búsqueda Por Alumno"
         columns={columns}
         data={filteredAlumnos.flatMap((item) => item.alumnos)}
         selectableRows

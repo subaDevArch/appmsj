@@ -20,7 +20,6 @@ function Aplicaciones() {
   const { isAuthenticated, user } = useAuth();
   return (
     <>
-    
       <Link to="/enviar-comunicado" className="flex flex-col items-center">
         <div className="bg-white hover:bg-gray-300 text-blue-500 font-bold py-8 px-8 rounded-xl shadow-md flex items-center justify-center">
           <Mail className="w-9 h-9" />
@@ -101,7 +100,7 @@ function Aplicaciones() {
         className="flex flex-col items-center"
       >
         <div className="bg-white hover:bg-gray-100 text-blue-500 font-bold py-8 px-8 rounded-xl shadow-md flex items-center justify-center">
-          < FileClock className="w-9 h-9" />
+          <FileClock className="w-9 h-9" />
         </div>
         <span className="text-xs mt-2">Horario Profesores</span>
       </a>
@@ -110,7 +109,7 @@ function Aplicaciones() {
         className="flex flex-col items-center"
       >
         <div className="bg-white hover:bg-gray-100 text-blue-500 font-bold py-8 px-8 rounded-xl shadow-md flex items-center justify-center">
-          < BookPlus className="w-9 h-9" />
+          <BookPlus className="w-9 h-9" />
         </div>
         <span className="text-xs mt-2 ml-2.5">Horarios de Consultas</span>
       </a>
@@ -119,22 +118,17 @@ function Aplicaciones() {
         className="flex flex-col items-center"
       >
         <div className="bg-white hover:bg-gray-100 text-blue-500 font-bold py-8 px-8 rounded-xl shadow-md flex items-center justify-center">
-          < CalendarDays className="w-9 h-9" />
+          <CalendarDays className="w-9 h-9" />
         </div>
         <span className="text-xs mt-2 ml-2.5">Calendario Escolar</span>
       </a>
 
-      
-        <Link to="/ausentes" className="flex flex-col items-center">
-          <div className="bg-white hover:bg-gray-100 text-blue-500 font-bold py-8 px-8 rounded-xl shadow-md flex items-center justify-center">
-            <Megaphone className="w-9 h-9" />
-          </div>
-          <span className="text-xs mt-2">Noticias Preceptoria</span>
-        </Link>
-      
-     
-     
-     
+      <Link to="/ausentes" className="flex flex-col items-center">
+        <div className="bg-white hover:bg-gray-100 text-blue-500 font-bold py-8 px-8 rounded-xl shadow-md flex items-center justify-center">
+          <Megaphone className="w-9 h-9" />
+        </div>
+        <span className="text-xs mt-2">Noticias Preceptoria</span>
+      </Link>
     </>
   );
 }
