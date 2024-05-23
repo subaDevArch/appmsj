@@ -1,7 +1,7 @@
 // App.jsx
 
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import HomePage from "./pages/HomePage";
@@ -27,62 +27,63 @@ import ProfesoresAusentes from "./pages/ProfesoresAusentes";
 import Loader from "./components/Loader"; // Importa el componente Loader
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const hasSeenLoader = localStorage.getItem("hasSeenLoader");
-    if (!hasSeenLoader) {
-      const fakeDataFectch = () => {
-        setTimeout(() => {
-          setIsLoading(false);
-          localStorage.setItem("hasSeenLoader", "true");
-        }, 5000);
-      };
-      fakeDataFectch();
-    } else {
-      setIsLoading(false);
-    }
-  }, []);
-
-  return isLoading ? (
-    <Loader />
-  ) : (
+  return (
     <AuthProvider>
       <TaskProvider>
         <AlumnoProvider>
           <BrowserRouter>
-            <main>
-              <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/login" element={<LoginPage />} />
-                <Route path="/apps" element={<AppPage />} />
-                <Route element={<ProtectedRoute />}>
-                  <Route path="/tasks" element={<TasksPage />} />
-                  <Route path="/ausentes" element={<ProfesoresAusentes />} />
-                  <Route
-                    path="/enviar-comunicado"
-                    element={<EnviarComunicadoPage />}
-                  />
-                  <Route path="/buscar-alumnos" element={<BuscarAlumnos />} />
-                  <Route path="/datos-alumnos" element={<DatosAlumnosPage />} />
-                  <Route
-                    path="/buscar-datos-alumnos"
-                    element={<BuscarDatosPage />}
-                  />
-                  <Route path="/buscar-por-curso" element={<BuscarCursos />} />
-                  <Route path="/send-alumnos" element={<SendPage />} />
-                  <Route path="/send-cursos" element={<SendPadres />} />
-                  <Route path="/add-task" element={<TaskFormPage />} />
-                  <Route path="/tasks/:id" element={<TaskFormPage />} />
-                  <Route path="/profile" element={<ProfilePage />} />
-                </Route>
-              </Routes>
-              <Header />
-            </main>
+            <AppContent />
           </BrowserRouter>
         </AlumnoProvider>
       </TaskProvider>
     </AuthProvider>
+  );
+}
+
+function AppContent() {
+  const [isLoading, setIsLoading] = useState(true);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === '/') {
+      const fakeDataFetch = () => {
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 5000); // Simula una carga de datos de 5 segundos
+      };
+      fakeDataFetch();
+    } else {
+      setIsLoading(false);
+    }
+  }, [location.pathname]);
+
+  if (isLoading && location.pathname === '/') {
+    return <Loader />;
+  }
+
+  return (
+    <main>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/apps" element={<AppPage />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path="/tasks" element={<TasksPage />} />
+          <Route path="/ausentes" element={<ProfesoresAusentes />} />
+          <Route path="/enviar-comunicado" element={<EnviarComunicadoPage />} />
+          <Route path="/buscar-alumnos" element={<BuscarAlumnos />} />
+          <Route path="/datos-alumnos" element={<DatosAlumnosPage />} />
+          <Route path="/buscar-datos-alumnos" element={<BuscarDatosPage />} />
+          <Route path="/buscar-por-curso" element={<BuscarCursos />} />
+          <Route path="/send-alumnos" element={<SendPage />} />
+          <Route path="/send-cursos" element={<SendPadres />} />
+          <Route path="/add-task" element={<TaskFormPage />} />
+          <Route path="/tasks/:id" element={<TaskFormPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+        </Route>
+      </Routes>
+      <Header />
+    </main>
   );
 }
 
