@@ -30,23 +30,28 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const fakeDataFetch = () => {
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 4000); // Simula una carga de datos de 4 segundos
-    };
-    fakeDataFetch();
+    const hasSeenLoader = localStorage.getItem("hasSeenLoader");
+    if (!hasSeenLoader) {
+      const fakeDataFectch = () => {
+        setTimeout(() => {
+          setIsLoading(false);
+          localStorage.setItem("hasSeenLoader", "true");
+        }, 5000);
+      };
+      fakeDataFectch();
+    } else {
+      setIsLoading(false);
+    }
   }, []);
 
-  return  isLoading ? (
-    <Loader/>
-  ):(
+  return isLoading ? (
+    <Loader />
+  ) : (
     <AuthProvider>
       <TaskProvider>
         <AlumnoProvider>
           <BrowserRouter>
             <main>
-              
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/login" element={<LoginPage />} />
