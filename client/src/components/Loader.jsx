@@ -9,7 +9,7 @@ function Loader() {
           src="robot.png"
           alt="robot"
         />
-        <h1 className='text-white font-bold font-orbitron text-3xl sm:text-2xl md:text-4xl lg:text-5xl mt-2 text-center' style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.7)' }}>
+        <h1 className='text-white font-bold font-orbitron text-3xl sm:text-2xl md:text-3xl lg:text-3xl mt-2 text-center' style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.7)' }}>
           PRECEPTOR 2.00
         </h1>
       </div>
