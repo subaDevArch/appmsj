@@ -1,7 +1,7 @@
 // App.jsx
 
-import React from "react";
-import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import HomePage from "./pages/HomePage";
@@ -24,20 +24,33 @@ import AppPage from "./pages/AppPage";
 import BuscarDatosPage from "./pages/BuscarDatosPage";
 import DatosAlumnosPage from "./pages/DatosAlumnosPage";
 import ProfesoresAusentes from "./pages/ProfesoresAusentes";
+import Loader from "./components/Loader"; // Importa el componente Loader
 
 function App() {
-  return (
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fakeDataFetch = () => {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 4000); // Simula una carga de datos de 4 segundos
+    };
+    fakeDataFetch();
+  }, []);
+
+  return  isLoading ? (
+    <Loader/>
+  ):(
     <AuthProvider>
       <TaskProvider>
         <AlumnoProvider>
           <BrowserRouter>
-            <main /*className="container mx-auto px-10"*/>
+            <main>
+              
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/login" element={<LoginPage />} />
-
                 <Route path="/apps" element={<AppPage />} />
-
                 <Route element={<ProtectedRoute />}>
                   <Route path="/tasks" element={<TasksPage />} />
                   <Route path="/ausentes" element={<ProfesoresAusentes />} />

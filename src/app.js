@@ -9,7 +9,7 @@ import dotenv from "dotenv";
 import authRoutes from "./routes/auth.routes.js";
 import taskRoutes from "./routes/task.routes.js";
 import alumnosRoutes from "./routes/alumnos.routes.js";
-import profesoresRoutes from "./routes/profesor.routes.js";
+
 import sendmsj from "./routes/sendmsj.routes.js";
 
 // Importación de función para conectar a la base de datos
