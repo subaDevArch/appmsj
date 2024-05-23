@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
-import RegisterPage from "./pages/RegisterPage";
 import HomePage from "./pages/HomePage";
 import TasksPage from "./pages/TasksPage";
 import TaskFormPage from "./pages/TaskFormPage";
@@ -11,8 +10,6 @@ import ProfilePage from "./pages/ProfilePage";
 import { AuthProvider } from "./context/AuthContext";
 import { TaskProvider } from "./context/TasksContext";
 import ProtectedRoute from "./ProtectedRoute";
-import Navbar from "./components/NavBar";
-import SendMsj from "./components/SendMsj";
 import SendPage from "./pages/SendPage";
 import EnviarComunicadoPage from "./pages/EnviarComunicadoPage";
 import BuscarAlumnos from "./pages/BuscarAlumnos";
@@ -45,7 +42,7 @@ function AppContent() {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.pathname === '/') {
+    if (location.pathname === "/") {
       const fakeDataFetch = () => {
         setTimeout(() => {
           setIsLoading(false);
@@ -57,7 +54,7 @@ function AppContent() {
     }
   }, [location.pathname]);
 
-  if (isLoading && location.pathname === '/') {
+  if (isLoading && location.pathname === "/") {
     return <Loader />;
   }
 
