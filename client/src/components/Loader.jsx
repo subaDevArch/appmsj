@@ -2,14 +2,14 @@ import React from 'react';
 
 function Loader() {
   return (
-    <div className='flex items-center justify-center h-screen bg-green-500'>
-      <div className="animate-pulse text-center">
+    <div className='flex items-center justify-center h-screen bg-gradient-to-r from-green-700 to-gray-600'>
+      <div className="animate-pulse flex flex-col items-center">
         <img
-          className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48"
+          className="w-34 h-42 sm:w-47 sm:h-46 md:w-46 md:h-47 lg:w-72 lg:h-72 xl:w-38 xl:h-72"
           src="robot.png"
           alt="robot"
         />
-        <h1 className='text-white font-bold font-orbitron text-2xl sm:text-3xl md:text-4xl lg:text-5xl mt-4'>
+        <h1 className='text-white font-bold font-orbitron text-3xl sm:text-2xl md:text-4xl lg:text-5xl mt-2 text-center' style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.7)' }}>
           PRECEPTOR 2.00
         </h1>
       </div>
