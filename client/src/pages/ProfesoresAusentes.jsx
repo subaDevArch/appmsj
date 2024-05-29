@@ -12,8 +12,6 @@ function ProfesoresAusentes() {
 
   const sortedTasks = tasks.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
-  if (tasks.length === 0) return <h1>No Tasks</h1>;
-
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Noticias Preceptoria</h1>
@@ -23,13 +21,17 @@ function ProfesoresAusentes() {
       >
         Agregar Aviso
       </Link>
-      <div>
-        {sortedTasks.map((task) => (
-          <div key={task._id} className="mb-4">
-            <TaskCard task={task} />
-          </div>
-        ))}
-      </div>
+      {tasks.length === 0 ? (
+        <h1>No Tasks</h1>
+      ) : (
+        <div>
+          {sortedTasks.map((task) => (
+            <div key={task._id} className="mb-4">
+              <TaskCard task={task} />
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
