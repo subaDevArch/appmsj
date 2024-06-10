@@ -68,6 +68,7 @@ const DetallesAlumnos = () => {
           email: email,
           subject: subject,
           mensaje: mensaje,
+          attachments: attachments,
         }),
       });
 
@@ -163,7 +164,16 @@ const DetallesAlumnos = () => {
                 className="border border-gray-300 rounded px-4 py-2 w-full"
               ></textarea>
             </div>
+            
             <hr />
+            <div class="form-group mb-4">
+                <label for="fileAdjunto">Adjuntar Archivo</label>
+                <input
+                  type="file"
+                  name="fileAdjunto"
+                  class="form-control-file" />
+              </div>
+              <hr />
             {!isSending && ( // Condicional para mostrar/ocultar el botón
               <button
                 type="submit"

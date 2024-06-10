@@ -1,10 +1,28 @@
 import nodemailer from "nodemailer";
+import multer from "multer";
+
+
 
 // Controlador para enviar un correo
 
 export const enviarCorreo = async (req, res) => {
+
+const storage = multer.diskStorage({
+  destination: (req,file,cb) => {
+    cb(null, path.join(__dirname, "file_emails"));
+  },
+  filename: (req,file,cb) =>{
+    cb(null,file.originalname);
+  },
+});
+
+const upload = multer ({storage: storage});
+
   const { email, subject, mensaje } = req.body; // Cambiado de 'asunto' a 'subject'
   console.log("Datos recibidos:", email, subject, mensaje);
+  const fileAdjunto = req.file;
+
+  
 
   try {
     const transporter = nodemailer.createTransport({
@@ -20,7 +38,20 @@ export const enviarCorreo = async (req, res) => {
       to: email,
       subject: subject, // Cambiado de 'asunto' a 'subject'
       text: mensaje,
+      attachments: attachments,
     };
+
+    let attachments = [];
+  if(fileAdjunto) {
+     const filePath = ppath.join((__dirname, "file_emails",fileAdjunto.filename));
+
+     attachments = [
+      {
+        filename: fileAdjunto.name,
+        path:filePath,
+      },
+     ];
+  }
 
     // Utiliza await para esperar a que sendMail() termine antes de continuar
     const info = await transporter.sendMail(mailOptions);
