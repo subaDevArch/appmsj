@@ -248,7 +248,7 @@ const DetallesAlumnos = () => {
     }
 
     try {
-      const response = await fetch("https://backend-msj.onrender.com/send-email", {
+      const response = await fetch("https://backend-msj.onrender.com/enviado", {
         method: "POST",
         body: formData,
       });

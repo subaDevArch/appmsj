@@ -51,8 +51,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-const app = express();
-app.use(express.json());
+
 
 // Controlador para enviar un correo
 export const enviarCorreo = async (req, res) => {
