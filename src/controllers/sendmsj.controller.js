@@ -99,7 +99,7 @@ export const enviarCorreo = async (req, res) => {
   }
 };
 
-app.post('/send-email', upload.single('file'), enviarCorreo);
+app.post('/enviado', upload.single('file'), enviarCorreo);
 
 
 
