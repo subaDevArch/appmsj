@@ -9,6 +9,7 @@ const DetallesAlumnos = () => {
   const [email, setEmail] = useState(""); // Estado para almacenar el correo electrónico
   const [subject, setSubject] = useState("");
   const [mensaje, setMensaje] = useState(""); // Estado para almacenar el mensaje
+  const [attachments, setAttachments] = useState(""); // Estado para almacenar el mensaje
   const [agruparEmails, setAgruparEmails] = useState(true); // Estado para controlar si se agrupan automáticamente los correos electrónicos
   const [isSending, setIsSending] = useState(false); // Estado para controlar la visibilidad del botón
 
@@ -85,6 +86,7 @@ const DetallesAlumnos = () => {
         setEmail("");
         setSubject("");
         setMensaje("");
+        setAttachments("");
       } else {
         MySwal.fire({
           icon: "error",
