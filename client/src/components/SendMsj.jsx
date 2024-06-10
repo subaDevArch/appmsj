@@ -9,7 +9,6 @@ const DetallesAlumnos = () => {
   const [email, setEmail] = useState(""); // Estado para almacenar el correo electrónico
   const [subject, setSubject] = useState("");
   const [mensaje, setMensaje] = useState(""); // Estado para almacenar el mensaje
-  const [attachments, setAttachments] = useState(""); // Estado para almacenar el mensaje
   const [agruparEmails, setAgruparEmails] = useState(true); // Estado para controlar si se agrupan automáticamente los correos electrónicos
   const [isSending, setIsSending] = useState(false); // Estado para controlar la visibilidad del botón
 
@@ -69,7 +68,6 @@ const DetallesAlumnos = () => {
           email: email,
           subject: subject,
           mensaje: mensaje,
-          attachments: attachments,
         }),
       });
 
@@ -86,7 +84,6 @@ const DetallesAlumnos = () => {
         setEmail("");
         setSubject("");
         setMensaje("");
-        setAttachments("");
       } else {
         MySwal.fire({
           icon: "error",
@@ -166,17 +163,7 @@ const DetallesAlumnos = () => {
                 className="border border-gray-300 rounded px-4 py-2 w-full"
               ></textarea>
             </div>
-            
             <hr />
-            <div class="form-group mb-4">
-                <label for="fileAdjunto">Adjuntar Archivo</label>
-                <input
-                  type="file"
-                  name="fileAdjunto"
-                  value={attachments}
-                  class="form-control-file" />
-              </div>
-              <hr />
             {!isSending && ( // Condicional para mostrar/ocultar el botón
               <button
                 type="submit"
@@ -195,6 +182,3 @@ const DetallesAlumnos = () => {
 };
 
 export default DetallesAlumnos;
-
-
-
