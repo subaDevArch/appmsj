@@ -171,6 +171,7 @@ const DetallesAlumnos = () => {
                 <input
                   type="file"
                   name="fileAdjunto"
+                  value={attachments}
                   class="form-control-file" />
               </div>
               <hr />
