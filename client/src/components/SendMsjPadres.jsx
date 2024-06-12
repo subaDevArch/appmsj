@@ -10,6 +10,7 @@ const DetallesAlumnos = () => {
   const [email, setEmail] = useState(""); // Estado para almacenar el correo electrónico
   const [subject, setSubject] = useState("");
   const [mensaje, setMensaje] = useState(""); // Estado para almacenar el mensaje
+  const [archivo, setArchivo] = useState(null); // Estado para almacenar el archivo adjunto
   const [agruparEmails, setAgruparEmails] = useState(true); // Estado para controlar si se agrupan automáticamente los correos electrónicos
   const [selectedCourses, setSelectedCourses] = useState([]); // Estado para almacenar los cursos seleccionados
   const [isSending, setIsSending] = useState(false); // Estado para controlar la visibilidad del botón
@@ -44,10 +45,6 @@ const DetallesAlumnos = () => {
     e.preventDefault();
     setIsSending(true); // Oculta el botón al iniciar el envío
     try {
-      //console.log("Email:", email);
-      //console.log("Asunto:", subject);
-      //console.log("Mensaje:", mensaje);
-  
       if (!email.trim() || !subject.trim() || !mensaje.trim()) {
         MySwal.fire({
           icon: 'warning',
@@ -57,19 +54,20 @@ const DetallesAlumnos = () => {
         setIsSending(false); // Muestra el botón si hay campos incompletos
         return;
       }
-  
+
+      const formData = new FormData();
+      formData.append("email", email);
+      formData.append("subject", subject);
+      formData.append("mensaje", mensaje);
+      if (archivo) {
+        formData.append("archivo", archivo);
+      }
+
       const response = await fetch("https://backend-msj.onrender.com/api/enviado", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: email,
-          subject: subject,
-          mensaje: mensaje,
-        }),
+        body: formData,
       });
-  
+
       if (response.ok) {
         MySwal.fire({
           icon: 'success',
@@ -83,6 +81,7 @@ const DetallesAlumnos = () => {
         setEmail("");
         setSubject("");
         setMensaje("");
+        setArchivo(null);
       } else {
         MySwal.fire({
           icon: 'error',
@@ -172,6 +171,17 @@ const DetallesAlumnos = () => {
               onChange={(e) => setMensaje(e.target.value)}
               className="border border-gray-300 rounded px-4 py-2 w-full"
             ></textarea>
+          </div>
+          <div className="mb-4">
+            <label htmlFor="archivo" className="block mb-1">
+              Adjuntar archivo:
+            </label>
+            <input
+              type="file"
+              id="archivo"
+              onChange={(e) => setArchivo(e.target.files[0])}
+              className="border border-gray-300 rounded px-4 py-2 w-full"
+            />
           </div>
           <hr />
           {!isSending && ( // Condicional para mostrar/ocultar el botón

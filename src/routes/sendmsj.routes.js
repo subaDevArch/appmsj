@@ -1,11 +1,13 @@
-import { Router } from "express";
 import express from "express";
-import { authRequired } from "../middlewares/validateToken.js";
+import multer from "multer";
 import { enviarCorreo } from "../controllers/sendmsj.controller.js";
 
 const router = express.Router();
 
-// Ruta para enviar un correo
-router.post("/enviado",  enviarCorreo);
+// Configuración de multer para guardar los archivos en la carpeta 'uploads'
+const upload = multer({ dest: 'uploads/' });
+
+// Ruta para enviar un correo con un archivo adjunto
+router.post("/enviado", upload.single('archivo'), enviarCorreo);
 
 export default router;

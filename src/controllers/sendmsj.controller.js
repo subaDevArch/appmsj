@@ -1,10 +1,14 @@
 import nodemailer from "nodemailer";
-
-// Controlador para enviar un correo
+import path from "path";
 
 export const enviarCorreo = async (req, res) => {
-  const { email, subject, mensaje } = req.body; // Cambiado de 'asunto' a 'subject'
+  const { email, subject, mensaje } = req.body;
+  const archivo = req.file; // Archivo subido por multer
+
   console.log("Datos recibidos:", email, subject, mensaje);
+  if (archivo) {
+    console.log("Archivo recibido:", archivo.originalname);
+  }
 
   try {
     const transporter = nodemailer.createTransport({
@@ -15,17 +19,24 @@ export const enviarCorreo = async (req, res) => {
       },
     });
 
+    const attachments = archivo ? [{
+      filename: archivo.originalname,
+      path: archivo.path,
+      contentType: archivo.mimetype
+    }] : [];
+
     const mailOptions = {
       from: process.env.EMAIL,
       to: email,
-      subject: subject, // Cambiado de 'asunto' a 'subject'
+      subject: subject,
       text: mensaje,
+      attachments: attachments,
     };
 
     // Utiliza await para esperar a que sendMail() termine antes de continuar
     const info = await transporter.sendMail(mailOptions);
 
-    console.log("Email sent" + info.response);
+    console.log("Email sent: " + info.response);
     res.status(201).json({ status: 201, info });
   } catch (error) {
     console.error(error);
