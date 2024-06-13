@@ -267,7 +267,7 @@ const DetallesAlumnos = () => {
     
         return `Estimados Padres o Tutores,
     
-          Nos dirigimos a ustedes para informarles que el alumno ${nombreAlumno} no pudo asistir a clase el día de hoy, ${fechaHoy}. Es importante para nosotros mantenerles al tanto de la asistencia de sus hijos, ya que la regularidad en la asistencia contribuye significativamente al progreso académico y social del estudiante.
+          Nos dirigimos a ustedes para informarles que el alumno ${nombreAlumno} no asistió a clase el día de hoy, ${fechaHoy}. Es importante para nosotros mantenerles al tanto de la asistencia de sus hijos, ya que la regularidad en la asistencia contribuye significativamente al progreso académico y social del estudiante.
     
           Si desean más detalles sobre la ausencia o tienen alguna pregunta, por favor no duden en comunicarse con nosotros. Estamos aquí para ayudarles y apoyarles en todo lo necesario.
     
