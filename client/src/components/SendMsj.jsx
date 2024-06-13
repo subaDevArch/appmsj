@@ -277,7 +277,7 @@ const DetallesAlumnos = () => {
           ${nombreUsuario}
         `;
       }
-      return "Estimados Padres o Tutores, les informamos que un alumno no pudo asistir a clase el día de hoy. Si desean más detalles, por favor comuníquense con nosotros.";
+      return "Estimados Padres o Tutores, les informamos que un alumno no pudo asistió a clase el día de hoy. Si desean más detalles, por favor comuníquense con nosotros.";
     },
     
     AUSENTE: (alumnos, nombreUsuario) => {
