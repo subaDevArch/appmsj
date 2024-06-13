@@ -250,6 +250,8 @@ const DetallesAlumnos = () => {
     
           Atentamente,
           ${nombreUsuario}
+
+          Contacto EIDFS: 0264 421-4645 - Preceptoria.
         `;
       }
       return "Estimados Padres o Tutores, les informamos que un alumno ha mostrado un comportamiento inadecuado en clase hoy. Si desean más detalles, por favor comuníquense con nosotros.";
@@ -275,6 +277,8 @@ const DetallesAlumnos = () => {
     
           Atentamente,
           ${nombreUsuario}
+
+          Contacto EIDFS: 0264 421-4645 - Preceptoria.
         `;
       }
       return "Estimados Padres o Tutores, les informamos que un alumno llegó tarde a clase el día de hoy. Si desean más detalles, por favor comuníquense con nosotros.";
@@ -301,6 +305,8 @@ const DetallesAlumnos = () => {
     
           Atentamente,
           ${nombreUsuario}
+
+          Contacto EIDFS: 0264 421-4645 - Preceptoria.
         `;
       }
       return "Estimados Padres o Tutores, les informamos que un alumno no pudo asistiò a clase el día de hoy. Si desean más detalles, por favor comuníquense con nosotros.";
@@ -323,6 +329,8 @@ const DetallesAlumnos = () => {
     
           Saludos cordiales,
           ${nombreUsuario}
+
+          Contacto EIDFS: 0264 421-4645 - Preceptoria.
         `;
       }
       return "Estimados Padres o Tutores, les informamos sobre un comunicado importante. Para más detalles, por favor comuníquense con nosotros.";
