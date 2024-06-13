@@ -267,9 +267,9 @@ const DetallesAlumnos = () => {
     
         return `Estimados Padres o Tutores,
     
-          Nos dirigimos a ustedes para informarles que el alumno ${nombreAlumno} no asistió a clase el día de hoy, ${fechaHoy}. Es importante para nosotros mantenerles al tanto de la asistencia de sus hijos, ya que la regularidad en la asistencia contribuye significativamente al progreso académico y social del estudiante.
+          Nos dirigimos a ustedes para informarles que el alumno ${nombreAlumno} llegó tarde a clase el día de hoy, ${fechaHoy}. Es importante para nosotros mantenerles al tanto de la puntualidad de sus hijos, ya que la regularidad y puntualidad en la asistencia contribuyen significativamente al progreso académico y social del estudiante.
     
-          Si desean más detalles sobre la ausencia o tienen alguna pregunta, por favor no duden en comunicarse con nosotros. Estamos aquí para ayudarles y apoyarles en todo lo necesario.
+          Si desean más detalles sobre la tardanza o tienen alguna pregunta, por favor no duden en comunicarse con nosotros. Estamos aquí para ayudarles y apoyarles en todo lo necesario.
     
           Agradecemos su comprensión y colaboración en este proceso educativo.
     
@@ -277,8 +277,9 @@ const DetallesAlumnos = () => {
           ${nombreUsuario}
         `;
       }
-      return "Estimados Padres o Tutores, les informamos que un alumno no pudo asistió a clase el día de hoy. Si desean más detalles, por favor comuníquense con nosotros.";
+      return "Estimados Padres o Tutores, les informamos que un alumno llegó tarde a clase el día de hoy. Si desean más detalles, por favor comuníquense con nosotros.";
     },
+    
     
     AUSENTE: (alumnos, nombreUsuario) => {
       if (alumnos.length > 0) {
@@ -292,15 +293,17 @@ const DetallesAlumnos = () => {
     
         return `Estimados Padres o Tutores,
     
-          Les informamos que el alumno ${nombreAlumno} no pudo asistir a clase el día de hoy, ${fechaHoy}. Nos gustaría recordarles la importancia de la asistencia regular para el progreso académico de los estudiantes.
+          Nos dirigimos a ustedes para informarles que el alumno ${nombreAlumno} no asistiò a clase el día de hoy, ${fechaHoy}. Es importante para nosotros mantenerles al tanto de la asistencia de sus hijos, ya que la regularidad en la asistencia contribuye significativamente al progreso académico y social del estudiante.
     
-          Por favor, si desean más detalles o tienen alguna pregunta, no duden en comunicarse con nosotros.
+          Si desean más detalles sobre la ausencia o tienen alguna pregunta, por favor no duden en comunicarse con nosotros. Estamos aquí para ayudarles y apoyarles en todo lo necesario.
     
-          Saludos cordiales,
+          Agradecemos su comprensión y colaboración en este proceso educativo.
+    
+          Atentamente,
           ${nombreUsuario}
         `;
       }
-      return "Mensaje predeterminado para ausente...";
+      return "Estimados Padres o Tutores, les informamos que un alumno no pudo asistiò a clase el día de hoy. Si desean más detalles, por favor comuníquense con nosotros.";
     },
     COMUNICADO: (alumnos, nombreUsuario) => {
       if (alumnos.length > 0) {
