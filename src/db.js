@@ -16,4 +16,3 @@ export const connectDB = async () => {
 };
 //mongodb://localhost/merndb
 
-//mongodb+srv://peto:Peto34697936@cluster0.qp844en.mongodb.net/
