@@ -11,7 +11,7 @@ function HomePage() {
     const fakeDataFectch = () => {
       setTimeout(() => {
         setIsLoading(false);
-      }, 4000);
+      }, 500);
     };
     fakeDataFectch();
   }, []);

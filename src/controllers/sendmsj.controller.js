@@ -12,11 +12,17 @@ export const enviarCorreo = async (req, res) => {
 
   try {
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: "190.124.224.14",
+      port: 25,
+      secure: false, // true for 465, false for other ports
       auth: {
         user: process.env.EMAIL,
         pass: process.env.PASSWORD,
       },
+      tls: {
+ciphers: 'SSLv3',
+        rejectUnauthorized: false // Permite conexiones a servidores que utilizan certificados no verificados
+      }
     });
 
     const attachments = archivo ? [{
@@ -31,9 +37,9 @@ export const enviarCorreo = async (req, res) => {
       subject: subject,
       text: mensaje,
       attachments: attachments,
+bcc: process.env.EMAIL
     };
 
-    // Utiliza await para esperar a que sendMail() termine antes de continuar
     const info = await transporter.sendMail(mailOptions);
 
     console.log("Email sent: " + info.response);

@@ -21,7 +21,7 @@ export function AlumnoProvider({ children }) {
     try {
       const res = await obtenerAlumnosRequest(); // Suponiendo que tienes una función getAlumnosRequest en tu archivo de api/alumnos.js que obtiene la lista de alumnos
       setAlumnos(res.data);
-      console.log(res.data);
+      
       
       
     } catch (error) {

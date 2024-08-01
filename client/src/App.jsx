@@ -46,7 +46,7 @@ function AppContent() {
       const fakeDataFetch = () => {
         setTimeout(() => {
           setIsLoading(false);
-        }, 5000); // Simula una carga de datos de 5 segundos
+        }, 4000); // Simula una carga de datos de 5 segundos
       };
       fakeDataFetch();
     } else {

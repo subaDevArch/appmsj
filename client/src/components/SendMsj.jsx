@@ -65,7 +65,7 @@ const DetallesAlumnos = () => {
     }
 
     try {
-      const response = await fetch("https://backend-msj.onrender.com/api/enviado", {
+      const response = await fetch("https://190.124.224.159/api/enviado", {
         method: "POST",
         body: formData,
       });
@@ -376,7 +376,7 @@ const sendMail = async (e) => {
   }
 
   try {
-    const response = await fetch("https://backend-msj.onrender.com/api/enviado", {
+    const response = await fetch("https://preceptor.eidfs.unsj.edu.ar/api/enviado", {
       method: "POST",
       body: formData,
     });

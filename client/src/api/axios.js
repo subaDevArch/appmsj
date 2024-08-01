@@ -9,8 +9,9 @@ if (process.env.NODE_ENV === "production") {
 }
 
 const instance = axios.create({
-  baseURL: "https://backend-msj.onrender.com/api",
-  //baseURL : "http://localhost:3000/api",
+  baseURL: "https://preceptor.eidfs.unsj.edu.ar/api/",
+  //baseURL : "http://190.124.224.159:3000/api/",
+ //baseURL : "http://localhost:3000/api/",
   withCredentials: true
 });
 

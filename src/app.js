@@ -17,7 +17,7 @@ dotenv.config();
 
 // Configuración de Express
 const app = express();
-const origins = ["https://preceptor2-00.onrender.com", "http://localhost:5173"];
+const origins = ["https://preceptor2-00.onrender.com", "http://localhost:3000","http://190.124.224.159"];
 // Middleware para permitir solicitudes CORS desde el origen especificado
 app.use(
   cors({
