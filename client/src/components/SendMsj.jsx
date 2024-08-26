@@ -376,7 +376,7 @@ const sendMail = async (e) => {
   }
 
   try {
-    const response = await fetch("https://preceptor.eidfs.unsj.edu.ar/api/enviado", {
+    const response = await fetch("https://backend-msj.onrender.com/api/enviado", {
       method: "POST",
       body: formData,
     });
