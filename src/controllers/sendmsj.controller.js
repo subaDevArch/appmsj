@@ -1,48 +1,31 @@
 import nodemailer from "nodemailer";
-import path from "path";
+
+// Controlador para enviar un correo
 
 export const enviarCorreo = async (req, res) => {
-  const { email, subject, mensaje } = req.body;
-  const archivo = req.file; // Archivo subido por multer
-
+  const { email, subject, mensaje } = req.body; // Cambiado de 'asunto' a 'subject'
   console.log("Datos recibidos:", email, subject, mensaje);
-  if (archivo) {
-    console.log("Archivo recibido:", archivo.originalname);
-  }
 
   try {
     const transporter = nodemailer.createTransport({
-      host: "190.124.224.14",
-      port: 25,
-      secure: false, // true for 465, false for other ports
+      service: "gmail",
       auth: {
         user: "preceptor2.00@gmail.com",
         pass: "sesi gpra zfsw zhhr",
       },
-      tls: {
-ciphers: 'SSLv3',
-        rejectUnauthorized: false // Permite conexiones a servidores que utilizan certificados no verificados
-      }
     });
 
-    const attachments = archivo ? [{
-      filename: archivo.originalname,
-      path: archivo.path,
-      contentType: archivo.mimetype
-    }] : [];
-
     const mailOptions = {
-      from: process.env.EMAIL,
+      from: "preceptor2.00@gmail.com",
       to: email,
-      subject: subject,
+      subject: subject, // Cambiado de 'asunto' a 'subject'
       text: mensaje,
-      attachments: attachments,
-bcc: "preceptor2.00@gmail.com"
     };
 
+    // Utiliza await para esperar a que sendMail() termine antes de continuar
     const info = await transporter.sendMail(mailOptions);
 
-    console.log("Email sent: " + info.response);
+    console.log("Email sent" + info.response);
     res.status(201).json({ status: 201, info });
   } catch (error) {
     console.error(error);
