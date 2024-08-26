@@ -16,8 +16,8 @@ export const enviarCorreo = async (req, res) => {
       port: 25,
       secure: false, // true for 465, false for other ports
       auth: {
-        user: process.env.EMAIL,
-        pass: process.env.PASSWORD,
+        user: "preceptor2.00@gmail.com",
+        pass: "sesi gpra zfsw zhhr",
       },
       tls: {
 ciphers: 'SSLv3',
@@ -37,7 +37,7 @@ ciphers: 'SSLv3',
       subject: subject,
       text: mensaje,
       attachments: attachments,
-bcc: process.env.EMAIL
+bcc: "preceptor2.00@gmail.com"
     };
 
     const info = await transporter.sendMail(mailOptions);
